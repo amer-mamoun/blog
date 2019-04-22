@@ -11,6 +11,6 @@ class UsersController extends Controller
         $this->middleware('CheckAge'); 
     }
     public function listUsers(){
-        return "list users - admin/users controller";
+        return "list users - admin/users  controller";
     }
 }
