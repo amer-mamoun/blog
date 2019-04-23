@@ -23,3 +23,6 @@ Route::namespace('Admin')->prefix('admin')->group(function(){
         return route('welcome', ['name' => 'amer', 'age' => '23']);
     });
 });
+
+Route::view('/', 'welcome');
+Route::view('/about', 'about');
