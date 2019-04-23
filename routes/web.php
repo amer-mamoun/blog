@@ -12,8 +12,12 @@
 */
 
 
+Route::get('posts', 'PublicController@displayPosts')->name('displayPosts');
+
+
 Route::namespace('Admin')->prefix('admin')->group(function(){
-    Route::get('users', 'UsersController@listUsers')->middleware('CheckAge'); 
+    Route::get('users', 'UsersController@listUsers')->middleware('CheckAge');
+
 
     Route::get('posts', function(){
         return route('welcome', ['name' => 'amer', 'age' => '23']);
