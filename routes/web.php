@@ -12,17 +12,8 @@
 */
 
 
-Route::get('posts', 'PublicController@displayPosts')->name('displayPosts');
+Route::get('/', 'PublicController@index')->name('welcome');
+Route::view('/about', 'about')->name('about');
+Route::get('/contact', 'PublicController@contact')->name('contact');
 
-
-Route::namespace('Admin')->prefix('admin')->group(function(){
-    Route::get('users', 'UsersController@listUsers')->middleware('CheckAge');
-
-
-    Route::get('posts', function(){
-        return route('welcome', ['name' => 'amer', 'age' => '23']);
-    });
-});
-
-Route::view('/', 'welcome');
-Route::view('/about', 'about');
+Route::post('/contact', 'PublicController@contactPost')->name('contactPost');

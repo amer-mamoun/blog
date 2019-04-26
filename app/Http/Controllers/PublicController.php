@@ -7,21 +7,30 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function index($name){
-        return view('Welcome');
-    }
+    public function index(){
 
-    public function userInfo($userId, $name){
-        return "User: " . $userId . ' - ' .$name;
-    }
-
-    public function displayPosts(){
         $posts = Post::all();
+        return view('welcome', compact('posts'));
+    }
 
-        foreach ($posts as $post){
-            print $post->title . '<br>';
+    public function contact(){
+
+        return view('contact');
+    }
+
+    public function contactPost(Request $request){
+
+        if($request->hasFile('attachment')){
+            $file = $request->file('attachment');
+
+            echo "File Name" . $file->getClientOriginalName();
+            echo "<br>";
+
+            $file->move('images', $file->getClientOriginalName());
         }
 
-
+        $name = $request['email'];
+        var_dump($name);
     }
+
 }

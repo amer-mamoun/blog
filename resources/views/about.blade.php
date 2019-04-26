@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="title m-b-md">
-        About
+        {{ $title }}
     </div>
     <div class="links">
         <a href="https://laravel.com/docs">Docs</a>
